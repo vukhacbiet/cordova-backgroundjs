@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        id="cordova-backgroundjs"
+        version="1.0.0">
+
+  <name>BackgroundJS</name>
+
+  <engines>
+    <engine name="cordova" version=">=3.0.0"/>
+  </engines>
+
+  <asset src="www/BackgroundJS.js" target="js/BackgroundJS.js"/>
+
+  <js-module src="www/BackgroundJS.js" name="hello">
+    <clobbers target="window.BackgroundJS" />
+  </js-module>
+  <!-- ios -->
+  <platform name="ios">
+
+    <config-file target="config.xml" parent="/*">
+      <feature name="BackgroundJS">
+        <param name="ios-package" value="BackgroundJS"/>
+      </feature>
+    </config-file>
+
+    <header-file src="src/ios/BackgroundJS.h"/>
+    <source-file src="src/ios/BackgroundJS.m"/>
+  </platform>
+</plugin>
